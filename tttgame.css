@@ -1,0 +1,145 @@
+ * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #DBAD6A;
+            font-family: 'DynaPuff';
+            text-shadow: 2px 5px 1px black;
+            text-align: center;
+        }
+
+        #title {
+            color: rgb(255, 254, 253);
+            padding: 10px;
+            font-size: 50px;
+
+        }
+
+        .message_container {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .messageproperties {
+            background-color: #5A352A;
+            font-family: 'DynaPuff';
+            text-shadow: 2px 1px 1px black;
+            text-align: center;
+            color: rgb(255, 254, 253);
+            padding: 2vmin;
+            margin: 1vmin;
+            border: 1vmin;
+            width: 200px;
+            border-radius: 40px;
+
+
+        }
+
+        .container {
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5vmin;
+        }
+
+        .game {
+            height: 60vmin;
+            width: 60vmin;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5vmin;
+        }
+
+        .box {
+            height: 18vmin;
+            width: 18vmin;
+            border-radius: 0.5rem;
+            border: none;
+            box-shadow: 1px 2px 2px rgb(25, 24, 24);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #EFFFC8;
+        }
+
+        #reset {
+            padding: 1rem;
+            font-size: 1.5rem;
+            background-color: #B96D40;
+            border-radius: 1rem;
+            border: none;
+            font-family: 'DynaPuff';
+            color: #EDF2EF;
+            text-shadow: 1px 2px 2px black;
+            box-shadow: 1px 1px 1px black
+        }
+
+        #reset:hover {
+            background-color: #D34E24;
+            transition: 0.2s background-color ease-in-out;
+        }
+
+        #newgame {
+            padding: 1rem;
+            font-size: 1.5rem;
+            background-color: #B96D40;
+            border-radius: 1rem;
+            border: none;
+            font-family: 'DynaPuff';
+            color: #EDF2EF;
+            text-shadow: 1px 2px 2px black;
+            box-shadow: 1px 1px 1px black
+        }
+
+        .circle {
+            width: 50px;
+            height: 50px;
+            border: 7px solid #5A352A;
+            border-radius: 50%;
+        }
+
+        .cross {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* X shape */
+        .cross::before,
+        .cross::after {
+            content: "";
+            position: absolute;
+            width: 70%;
+            height: 8px;
+            background-color: #5A352A;
+        }
+
+        .cross::before {
+            transform: rotate(45deg);
+        }
+
+        .cross::after {
+            transform: rotate(-45deg);
+        }
+
+        .hidereset {
+            display: none;
+        }
+
+        .hidenewgame {
+            display: none;
+        }
+
+        .hidemessage {
+            display: none;
+        }
