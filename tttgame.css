@@ -1,145 +1,182 @@
- * {
-            margin: 0;
-            padding: 0;
-        }
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            background-color: #DBAD6A;
-            font-family: 'DynaPuff';
-            text-shadow: 2px 5px 1px black;
-            text-align: center;
-        }
+/* Body Styling */
+body {
+    font-family: "DynaPuff", cursive;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        #title {
-            color: rgb(255, 254, 253);
-            padding: 10px;
-            font-size: 50px;
+/* Title */
+#title {
+    margin-top: 20px;
+    font-size: 3rem;
+    letter-spacing: 3px;
+    color: #38bdf8;
+    text-shadow: 0 0 20px #38bdf8;
+}
 
-        }
+/* Game Container */
+.container {
+    margin-top: 30px;
+}
 
-        .message_container {
-            display: grid;
-            justify-content: center;
-            align-items: center;
-        }
+/* Grid */
+.game {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 15px;
+}
 
+/* Boxes */
+.box {
+    height: 100px;
+    width: 100px;
+    border-radius: 15px;
+    border: none;
+    background: #1e293b;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 
-        .messageproperties {
-            background-color: #5A352A;
-            font-family: 'DynaPuff';
-            text-shadow: 2px 1px 1px black;
-            text-align: center;
-            color: rgb(255, 254, 253);
-            padding: 2vmin;
-            margin: 1vmin;
-            border: 1vmin;
-            width: 200px;
-            border-radius: 40px;
+    /* CENTERING FIX */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #38bdf8;
+}
 
-        }
+/* Circle */
+.circle {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #22c55e;
+    border-radius: 50%;
+    animation: pop 0.3s ease;
+}
 
-        .container {
-            height: 70vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5vmin;
-        }
+/* Cross */
+.cross {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
 
-        .game {
-            height: 60vmin;
-            width: 60vmin;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5vmin;
-        }
+.cross::before,
+.cross::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 6px;
+    background: #ef4444;
+    top: 50%;
+    left: 0;
+    transform-origin: center;
+}
 
-        .box {
-            height: 18vmin;
-            width: 18vmin;
-            border-radius: 0.5rem;
-            border: none;
-            box-shadow: 1px 2px 2px rgb(25, 24, 24);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #EFFFC8;
-        }
+.cross::before {
+    transform: rotate(45deg);
+}
 
-        #reset {
-            padding: 1rem;
-            font-size: 1.5rem;
-            background-color: #B96D40;
-            border-radius: 1rem;
-            border: none;
-            font-family: 'DynaPuff';
-            color: #EDF2EF;
-            text-shadow: 1px 2px 2px black;
-            box-shadow: 1px 1px 1px black
-        }
+.cross::after {
+    transform: rotate(-45deg);
+}
 
-        #reset:hover {
-            background-color: #D34E24;
-            transition: 0.2s background-color ease-in-out;
-        }
+/* Animation */
+@keyframes pop {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
-        #newgame {
-            padding: 1rem;
-            font-size: 1.5rem;
-            background-color: #B96D40;
-            border-radius: 1rem;
-            border: none;
-            font-family: 'DynaPuff';
-            color: #EDF2EF;
-            text-shadow: 1px 2px 2px black;
-            box-shadow: 1px 1px 1px black
-        }
+/* Buttons */
+#reset, #newgame {
+    margin-top: 25px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        .circle {
-            width: 50px;
-            height: 50px;
-            border: 7px solid #5A352A;
-            border-radius: 50%;
-        }
+/* Reset Button */
+#reset {
+    background: #38bdf8;
+    color: black;
+}
 
-        .cross {
-            width: 100px;
-            height: 100px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+#reset:hover {
+    background: #0ea5e9;
+    box-shadow: 0 0 10px #38bdf8;
+}
 
-        /* X shape */
-        .cross::before,
-        .cross::after {
-            content: "";
-            position: absolute;
-            width: 70%;
-            height: 8px;
-            background-color: #5A352A;
-        }
+/* New Game Button */
+#newgame {
+    background: #22c55e;
+    color: black;
+}
 
-        .cross::before {
-            transform: rotate(45deg);
-        }
+#newgame:hover {
+    background: #16a34a;
+    box-shadow: 0 0 10px #22c55e;
+}
 
-        .cross::after {
-            transform: rotate(-45deg);
-        }
+/* Message */
+.message_container {
+    margin-top: 20px;
+    height: 40px;
+}
 
-        .hidereset {
-            display: none;
-        }
+.message {
+    font-size: 1.5rem;
+}
 
-        .hidenewgame {
-            display: none;
-        }
+/* Hidden Classes */
+.hidemessage {
+    display: none;
+}
 
-        .hidemessage {
-            display: none;
-        }
+.hidenewgame {
+    display: none;
+}
+
+.hidereset {
+    display: none;
+}
+
+/* Winner Message Styling */
+.messageproperties {
+    color: #facc15;
+    text-shadow: 0 0 10px #facc15;
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #facc15;
+    }
+    to {
+        text-shadow: 0 0 25px #facc15;
+    }
+}
